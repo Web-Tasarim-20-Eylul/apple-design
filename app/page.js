@@ -2,58 +2,115 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 export default function Home() {
+  const cardData = [
+    {
+      title: "Apple Intelligence şimdi sizinle.",
+      description:
+        "En yeni iPhone, iPad ve Mac modellerinde ücretsiz bir yazılım güncellemesiyle hemen deneyebilirsiniz",
+      buttons: [
+        {
+          variant: "default",
+          title: "daha fazla bilgi",
+        },
+      ],
+    },
+    {
+      title: "AirPods Pro 3",
+      description: "Çığır açıcı bir Aktif Gürültü Engelleme deneyimi.",
+      buttons: [
+        {
+          variant: "default",
+          title: "Daha Fazla Bilgi",
+        },
+        {
+          variant: "outline",
+          title: "Satın Alın",
+        },
+      ],
+      image: "/airpods.jpg",
+    },
+  ];
+
   return (
-    <div className="bg-black">
+    <div>
       {/* HERO BÖLÜMÜ */}
-      <div className="container mx-auto flex justify-evenly pt-16">
-        <div className="relative h-[50vh] aspect-[420/760]">
+      <div className="bg-black">
+        <div className="container mx-auto flex justify-evenly pt-16">
+          <div className="relative h-[50vh] aspect-[420/760]">
+            <Image
+              src={"/hero-img.jpg"}
+              fill
+              className="object-contain"
+              alt="iphone 17 pro max"
+            />
+          </div>
+          <div className="flex flex-col justify-evenly">
+            <div>
+              <h1 className="font-bold text-4xl text-white">
+                Yeni iPhone 17 Pro Max
+              </h1>
+              <h2 className="text-white text-xl">Gözü Yükseklerde</h2>
+            </div>
+            <div className="flex justify-end gap-3">
+              <Button variant={"outline"}>İletişim</Button>
+              <Button>Satın Al</Button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* SENCER bölüm 2 */}
+      <section className="bg-[#f5f4f7]">
+        {/* Yazı kısmı */}
+        <div className="py-12">
+          <h2 className="text-4xl font-medium text-center">iPhone AIR</h2>
+          <p className="text-center text-lg">Hafif, şık, güçlü</p>
+        </div>
+
+        <div className="flex justify-center gap-4">
+          <Button variant={"outline"}>Detayları Gör</Button>
+          <Button>Satın Al</Button>
+        </div>
+
+        {/* Resim kısmı */}
+        <div className="relative w-full sm:h-[35vh] md:h-[50vh] lg:h-[80vh]">
           <Image
-            src={"/hero-img.jpg"}
+            src={"/i-air.png"}
             fill
-            className="object-contain"
-            alt="iphone 17 pro max"
+            className="object-cover"
+            alt="iphone air"
           />
         </div>
-        <div className="flex flex-col justify-evenly">
-          <div>
-            <h1 className="font-bold text-4xl text-white">
-              Yeni iPhone 17 Pro Max
-            </h1>
-            <h2 className="text-white text-xl">Gözü Yükseklerde</h2>
-          </div>
-          <div className="flex justify-end gap-3">
-            <Button variant={"outline"}>İletişim</Button>
-            <Button>Satın Al</Button>
-          </div>
-        </div>
-      </div>
-     <div className="bg-white">
-  <div className="container mx-auto relative">
-    
+      </section>
 
-    <Image
-      src={"/maxresdefault.jpg"}
-      alt="iPhone Air"
-      width={1920}
-      height={1080}
-      className="w-full h-auto object-contain"/>
-    <div className="absolute top-0 left-0 w-full">
-      <div className="flex flex-col items-center">
-        <div className="text-4xl font-bold text-black text-center mt-8">
-          iPhone Air
+      {/* 3. BÖLÜM (Grid) */}
+      <section>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
+          {cardData.map((item) => (
+            <div className="bg-white border flex flex-col justify-center aspect-[4/3]">
+              <div className="w-xs text-center mx-auto">
+                <h2 className="text-2xl font-semibold">{item.title}</h2>
+                <p>{item.description}</p>
+              </div>
+              <div className="flex gap-4 mx-auto">
+                {item.buttons.map((button) => (
+                  <Button variant={button.variant}>{button.title}</Button>
+                ))}
+              </div>
+              {item.image && (
+                <div className="relative w-full h-[400px]">
+                  <Image
+                    src={item.image}
+                    alt="resim"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              )}
+            </div>
+          ))}
         </div>
-        <div className="text-xl text-black text-center mt-4">
-          Hafif. Şık. Güçlü.
-        </div>
-        <div className="mt-6 mb-8">
-          <Button>Detayları Gör</Button>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
+      </section>
     </div>
   );
 }
-

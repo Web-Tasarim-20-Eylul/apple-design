@@ -1,3 +1,3 @@
 export default function Page() {
-  return <div>Sayfa</div>;
+  return <div>Updates Sayfası</div>;
 }

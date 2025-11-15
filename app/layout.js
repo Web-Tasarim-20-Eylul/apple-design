@@ -1,6 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { MyNavbar } from "@/components/navbar";
 import { Navbar } from "@/components/navbar-new";
 
 const geistSans = Geist({
@@ -30,3 +29,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+// Single Page Application -> SPA (Tek bir HTML belgesi ile oluşturulan uygulamalara denir)
