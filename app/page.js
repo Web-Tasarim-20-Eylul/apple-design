@@ -27,6 +27,33 @@ export default function Home() {
           </div>
         </div>
       </div>
+     <div className="bg-white">
+  <div className="container mx-auto relative">
+    
+
+    <Image
+      src={"/maxresdefault.jpg"}
+      alt="iPhone Air"
+      width={1920}
+      height={1080}
+      className="w-full h-auto object-contain"/>
+    <div className="absolute top-0 left-0 w-full">
+      <div className="flex flex-col items-center">
+        <div className="text-4xl font-bold text-black text-center mt-8">
+          iPhone Air
+        </div>
+        <div className="text-xl text-black text-center mt-4">
+          Hafif. Şık. Güçlü.
+        </div>
+        <div className="mt-6 mb-8">
+          <Button>Detayları Gör</Button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
     </div>
   );
 }
+
