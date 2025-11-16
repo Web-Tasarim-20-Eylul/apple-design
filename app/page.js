@@ -35,7 +35,7 @@ export default function Home() {
     <div>
       {/* HERO BÖLÜMÜ */}
       <div className="bg-black">
-        <div className="container mx-auto flex justify-evenly pt-16">
+        <div className="max-w-sm md:container mx-auto flex flex-col-reverse md:flex-row justify-evenly pt-16">
           <div className="relative h-[50vh] aspect-[420/760]">
             <Image
               src={"/hero-img.jpg"}
@@ -44,14 +44,14 @@ export default function Home() {
               alt="iphone 17 pro max"
             />
           </div>
-          <div className="flex flex-col justify-evenly">
+          <div className="flex flex-col justify-evenly  text-center md:text-left space-y-6">
             <div>
               <h1 className="font-bold text-4xl text-white">
                 Yeni iPhone 17 Pro Max
               </h1>
               <h2 className="text-white text-xl">Gözü Yükseklerde</h2>
             </div>
-            <div className="flex justify-end gap-3">
+            <div className="flex justify-center md:justify-end gap-3 pb-8 md:p-0">
               <Button variant={"outline"}>İletişim</Button>
               <Button>Satın Al</Button>
             </div>
@@ -73,7 +73,7 @@ export default function Home() {
         </div>
 
         {/* Resim kısmı */}
-        <div className="relative w-full sm:h-[35vh] md:h-[50vh] lg:h-[80vh]">
+        <div className="relative w-full h-[20vh] md:h-[50vh] lg:h-[80vh]">
           <Image
             src={"/i-air.png"}
             fill
@@ -86,15 +86,20 @@ export default function Home() {
       {/* 3. BÖLÜM (Grid) */}
       <section>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
-          {cardData.map((item) => (
-            <div className="bg-white border flex flex-col justify-center aspect-[4/3]">
+          {cardData.map((item, idx) => (
+            <div
+              key={idx}
+              className="bg-white flex flex-col justify-center aspect-[4/3]"
+            >
               <div className="w-xs text-center mx-auto">
                 <h2 className="text-2xl font-semibold">{item.title}</h2>
                 <p>{item.description}</p>
               </div>
               <div className="flex gap-4 mx-auto">
-                {item.buttons.map((button) => (
-                  <Button variant={button.variant}>{button.title}</Button>
+                {item.buttons.map((button, idx) => (
+                  <Button key={idx} variant={button.variant}>
+                    {button.title}
+                  </Button>
                 ))}
               </div>
               {item.image && (
